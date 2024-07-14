@@ -3,6 +3,32 @@
 @tailwind utilities;
 
 :root {
+  --red-950: #B55154;
+  --red-900: #E9656B;
+  --red-700: #FF6D73;
+  --red-600: #FF7276;
+  --red-500: #FA9DA3;
+  --red-300: #FCD4DA;
+  --red-100: #FFE6EB;
+
+  --blue-900: #002A47;
+  --blue-700: #18527A;
+  --blue-500: #87BBE0;
+  --blue-300: #BCE3FF;
+  --blue-100: #D1ECFF;
+
+  --blue-link: #3F83F8;
+
+  --gray-950: #373A3C;
+  --gray-900: #474B4D;
+  --gray-500: #64696D;
+  --gray-100: #64696D1A;
+
+  --salmon: #FFF4F6;
+
+  --green-100: #EDF7F1;
+  --green-900: #21492E;
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -16,14 +42,9 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer utilities {
