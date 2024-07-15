@@ -3,12 +3,13 @@ import Link from "next/link"
 
 interface ButtonProps {
     title: string,
-    icon: boolean
+    icon: boolean,
+    full: boolean
 }
 
-export default function Button({title, icon}: ButtonProps) {
+export default function Button({title, icon, full = false}: ButtonProps) {
     return (
-        <Link href="/" className="flex bg-red-600 rounded-full px-6 my-8">
+        <Link href="/" className={`flex bg-red-600 rounded-full px-6 m-auto ${full ? `w-full my-1 justify-center p-2` : 'w-max my-8'}`}>
             {
                 icon &&
                 <Image

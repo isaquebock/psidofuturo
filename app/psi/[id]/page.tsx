@@ -1,10 +1,11 @@
 import {getPsychologistById} from "@/app/api/getPsychologistList";
 import Card from "@/app/components/card/card";
 import PsychologistCard from "@/app/components/psychologistCard/psychologistCard";
-import Tag from "../components/tag";
+import Tag from "../components/tag/tag";
 import Image from "next/image";
 import Button from "@/app/components/button/button";
-
+import Calendar from "../components/calendar/calendar";
+import { getCalendar } from "@/app/api/getCalendar";
 interface PsychologistDetails {
     params: {
         id: string
@@ -12,41 +13,62 @@ interface PsychologistDetails {
 }
 
 export default async function PsychologistDetails({ params }: PsychologistDetails) {
-    const data = await getPsychologistById(params.id);
+    try {
+        const data = await getPsychologistById(params.id);
+        const calendar = await getCalendar();
 
-    return (
-        <main className="flex w-full justify-center p-5 flex-col items-center">
-            <Button title={'Retornar à Lista'} icon={true}></Button>
+        return (
+            <main className="flex w-full justify-center p-5 items-start flex-wrap">
+                <div className="w-full">
+                    <Button title={'Retornar à Lista'} icon={true} full={false}></Button>
+                </div>
+                <div className="flex justify-center p-5 flex-col items-center">
 
-            <PsychologistCard data={data} information={false} />
+        
+                    <PsychologistCard data={data} information={false} />
 
-            <Card title="Descrição pessoal">
-                <p className="text-gray-500 leading-5">
-                    {data.bio}
-                </p>
-            </Card>
+                    <Card title="Descrição pessoal">
+                        <p className="text-gray-500 leading-5">
+                            {data.bio}
+                        </p>
+                    </Card>
 
-            <Card title="Anamnese">
-                {data.anamnesis.map((anamnese: any) => {
-                    return (<Tag key={anamnese.id} props={anamnese.name}></Tag>)
-                })}
-            </Card>
+                    <Card title="Anamnese">
+                        {data.anamnesis.map((anamnese: any) => {
+                            return (<Tag key={anamnese.id} props={anamnese.name}></Tag>)
+                        })}
+                    </Card>
 
-            <Card title="Formação Profissional">
-                {data.professionalCarreerTrail.map((carreerTrail: any) => {
-                    return (
-                        <span key={carreerTrail.id} className="flex mb-5">
-                            <Image
-                                src="/professional.svg"
-                                alt="Logo"
-                                width={24}
-                                height={24}
-                            />
-                            <p className="ml-2">{carreerTrail.name}</p>
-                        </span>
-                    )
-                })}
-            </Card>
-        </main>
-    )
+                    <Card title="Formação Profissional">
+                        {data.professionalCarreerTrail.map((carreerTrail: any) => {
+                            return (
+                                <span key={carreerTrail.id} className="flex mb-5">
+                                    <Image
+                                        src="/professional.svg"
+                                        alt="Logo"
+                                        width={24}
+                                        height={24}
+                                    />
+                                    <p className="ml-2">{carreerTrail.name}</p>
+                                </span>
+                            )
+                        })}
+                    </Card>
+                </div>
+                <div className="flex justify-center p-5 flex-col items-center">
+                    <Card title="Horários disponíveis">
+                        <Calendar calendar={calendar}></Calendar>
+                    </Card>
+                </div>
+            </main>
+        )
+    } catch {
+        return (
+            <main className="flex w-full justify-center p-5 flex-col items-center">
+                <Button title={'Retornar à Lista'} icon={true}></Button>
+
+                Não foi possivel carregar os dados
+            </main>
+        )
+    }
 }
