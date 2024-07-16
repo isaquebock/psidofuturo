@@ -7,6 +7,8 @@ import Button from "@/app/components/button/button";
 import Calendar from "../components/calendar/calendar";
 import { getCalendar } from "@/app/api/getCalendar";
 import Link from "next/link";
+import Error from "./error";
+
 interface PsychologistDetails {
     params: {
         id: string
@@ -65,11 +67,7 @@ export default async function PsychologistDetails({ params }: PsychologistDetail
         )
     } catch {
         return (
-            <main className="flex w-full justify-center p-5 flex-col items-center">
-                <Button title={'Retornar à Lista'} icon={true} full={false} action={() => {}}></Button>
-
-                Não foi possivel carregar os dados
-            </main>
+            <Error />
         )
     }
 }
