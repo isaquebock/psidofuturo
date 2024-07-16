@@ -1,7 +1,7 @@
 import Pyschologist from "../model/pyschologist.model";
 
 export async function getPsychologistById(id: string): Promise<Pyschologist> {
-    const res = await fetch(`http://localhost:3000/users/${id}`)
+    const res = await fetch(`http://localhost:3001/users/${id}`)
 
     if(!res.ok) {
         throw new Error('Não foi possivel carregar a listagem!');
@@ -11,7 +11,7 @@ export async function getPsychologistById(id: string): Promise<Pyschologist> {
 }
 
 export async function getPsychologistList(): Promise<Pyschologist[]> {
-    const res = await fetch(`http://localhost:3000/users/`)
+    const res = await fetch(`http://localhost:3001/users/`)
 
     if(!res.ok) {
         throw new Error('Não foi possivel carregar os dados!');

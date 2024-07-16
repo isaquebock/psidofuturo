@@ -6,6 +6,7 @@ import Image from "next/image";
 import Button from "@/app/components/button/button";
 import Calendar from "../components/calendar/calendar";
 import { getCalendar } from "@/app/api/getCalendar";
+import Link from "next/link";
 interface PsychologistDetails {
     params: {
         id: string
@@ -20,7 +21,9 @@ export default async function PsychologistDetails({ params }: PsychologistDetail
         return (
             <main className="flex w-full justify-center p-5 items-start flex-wrap">
                 <div className="w-full">
-                    <Button title={'Retornar à Lista'} icon={true} full={false}></Button>
+                    <Link href={`/`}>
+                        <Button title={'Retornar à Lista'} icon={true} full={false}></Button>
+                    </Link>
                 </div>
                 <div className="flex justify-center p-5 flex-col items-center">
 
@@ -56,16 +59,14 @@ export default async function PsychologistDetails({ params }: PsychologistDetail
                     </Card>
                 </div>
                 <div className="flex justify-center p-5 flex-col items-center">
-                    <Card title="Horários disponíveis">
-                        <Calendar calendar={calendar}></Calendar>
-                    </Card>
+                    <Calendar calendar={calendar}></Calendar>
                 </div>
             </main>
         )
     } catch {
         return (
             <main className="flex w-full justify-center p-5 flex-col items-center">
-                <Button title={'Retornar à Lista'} icon={true}></Button>
+                <Button title={'Retornar à Lista'} icon={true} full={false} action={() => {}}></Button>
 
                 Não foi possivel carregar os dados
             </main>
