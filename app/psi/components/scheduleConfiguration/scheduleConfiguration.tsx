@@ -41,7 +41,7 @@ export default function ScheduleConfiguration(props: any) {
 
                     <div className="pb-3 flex justify-between mt-5 ">
                         { daysOfTheWeek.map((item: any) => (
-                            <div className={`bg-gray-100 py-2 px-6 rounded-md cursor-pointer border-1 border-gray-100 font-medium ${schedule.day == item.day && `bg-red-100 border-red-400`}`} key={item.day} onClick={() => {
+                            <div className={`bg-gray-100 py-2 px-3 sm:px-6 rounded-md cursor-pointer border-1 text-sm sm:text-base border-gray-100 font-medium ${schedule.day == item.day && `bg-red-100 border-red-400`}`} key={item.day} onClick={() => {
                                 setSchedule({
                                     hour: '', 
                                     day: item.day,
@@ -56,11 +56,10 @@ export default function ScheduleConfiguration(props: any) {
 
                 <hr />  
 
-                <div className="pb-3">
-                    <div className="pb-3 flex justify-between mt-5 ">
+                <div className="pb-3 flex justify-between mt-5 ">
                         { daysOfTheWeek.map((item: any, index: number) => (
                             <div className="pb-3 flex-col flex margin" key={`${item}-${index}`}>{item.availableTimes.map((time: string, index: number) => {
-                                return <div key={`${time}-${index}`} className={`bg-gray-100 py-2 px-6 rounded-md border-1 border-gray-100 font-medium cursor-pointer w-20 flex justify-center items-center mb-2 ${(schedule.day == item.day && item.availableTimes.includes(time) && time === schedule.hour) && `bg-red-100 border-red-400`}`} onClick={
+                                return <div key={`${time}-${index}`} className={`bg-gray-100 py-2 px-3 sm:px-6 text-sm sm:text-base rounded-md border-1 border-gray-100 font-medium cursor-pointer w-14 sm:w-20 flex justify-center items-center mb-2 ${(schedule.day == item.day && item.availableTimes.includes(time) && time === schedule.hour) && `bg-red-100 border-red-400`}`} onClick={
                                     () => {
                                         setSchedule({
                                             hour: time, 
@@ -74,7 +73,6 @@ export default function ScheduleConfiguration(props: any) {
                             })}</div>
                         )) }
                     </div>
-                </div>
         
                 <hr className="mb-3" />  
 
