@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface PsychologistCardProps {
-  data: Pyschologist
+  key: any,
+  data: Pyschologist,
   information: boolean
 }
 
-export default async function PsychologistCard({ data, information }: PsychologistCardProps) {    
+export default async function PsychologistCard({key, data, information }: PsychologistCardProps) {    
   return (
-      <div className={`shadow-default flex flex-wrap border-1 border-solid border-gray-100 text-black p-10 bg-white rounded-2xl ${information ? 'max-w-md' : 'max-w-lg'} m-2`}>
+      <div className={`shadow-default flex flex-wrap border-1 border-solid border-gray-100 text-black p-10 bg-white rounded-2xl ${information ? 'max-w-md' : 'max-w-lg'} m-2`} key={key}>
         <div className="flex w-full mb-5">
           <div className="w-20 h-20  mr-4 relative">
           <Image
