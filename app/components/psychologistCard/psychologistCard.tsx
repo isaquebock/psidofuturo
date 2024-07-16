@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface PsychologistCardProps {
-  key: any,
+  key: string,
   data: Pyschologist,
   information: boolean
 }

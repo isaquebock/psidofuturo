@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "@next/font/google";
 
-export const workSans = Work_Sans({ 
+const workSans = Work_Sans({ 
     subsets: ['latin'],
 });
 

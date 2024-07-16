@@ -30,7 +30,7 @@ export default async function PsychologistDetails({ params }: PsychologistDetail
                 <div className="flex justify-center p-5 flex-col items-center">
 
         
-                    <PsychologistCard data={data} information={false} />
+                    <PsychologistCard key={data.id} data={data} information={false} />
 
                     <Card title="Descrição pessoal">
                         <p className="text-gray-500 leading-5">
