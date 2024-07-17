@@ -3,8 +3,12 @@
 import { useState } from "react";
 import ScheduleConfiguration from "../scheduleConfiguration/scheduleConfiguration";
 import Schedule from "../schedule/schedule";
+import Calendar from "@/app/model/calendar.model";
+interface CalendarProps {
+    calendar: Calendar[]
+}
 
-export default function Calendar(data: any) { 
+export default function Calendar({calendar}: CalendarProps) { 
     const [isScheduled, setIsScheduled] = useState(false);
     const [scheduledData, setScheduledData] = useState({
         day: '',
@@ -25,7 +29,7 @@ export default function Calendar(data: any) {
 
     return (
         <>
-            {!isScheduled ? (<ScheduleConfiguration setNewSchedule={setNewSchedule} calendar={data.calendar}></ScheduleConfiguration>) : (<Schedule cancelSchedule={cancelSchedule} data={scheduledData}></Schedule>)}
+            {!isScheduled ? (<ScheduleConfiguration setNewSchedule={setNewSchedule} calendar={calendar}></ScheduleConfiguration>) : (<Schedule cancelSchedule={cancelSchedule} data={scheduledData}></Schedule>)}
         </>
     )
 }

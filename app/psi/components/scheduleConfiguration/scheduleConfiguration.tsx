@@ -57,9 +57,9 @@ export default function ScheduleConfiguration(props: any) {
                 <hr />  
 
                 <div className="pb-3 flex justify-between mt-5 ">
-                        { daysOfTheWeek.map((item: any, index: number) => (
-                            <div className="pb-3 flex-col flex margin" key={`${item}-${index}`}>{item.availableTimes.map((time: string, index: number) => {
-                                return <div key={`${time}-${index}`} className={`bg-gray-100 py-2 px-3 sm:px-6 text-sm sm:text-base rounded-md border-1 border-gray-100 font-medium cursor-pointer w-14 sm:w-20 flex justify-center items-center mb-2 ${(schedule.day == item.day && item.availableTimes.includes(time) && time === schedule.hour) && `bg-red-100 border-red-400`}`} onClick={
+                        { daysOfTheWeek.map((item: any, indexColumn: number) => (
+                            <div className="pb-3 flex-col flex margin" key={`${item}-${indexColumn}`}>{item.availableTimes.map((time: string, index: number) => {
+                                return <button data-testid={`button-${indexColumn}-${index}`} key={`${time}-${index}`} className={`bg-gray-100 py-2 px-3 sm:px-6 text-sm sm:text-base rounded-md border-1 border-gray-100 font-medium cursor-pointer w-14 sm:w-20 flex justify-center items-center mb-2 ${(schedule.day == item.day && item.availableTimes.includes(time) && time === schedule.hour) && `bg-red-100 border-red-400`}`} onClick={
                                     () => {
                                         setSchedule({
                                             hour: time, 
@@ -69,7 +69,7 @@ export default function ScheduleConfiguration(props: any) {
                                             date: item.date
                                         })
                                     }
-                                }>{time}</div>
+                                }>{time}</button>
                             })}</div>
                         )) }
                     </div>
@@ -79,7 +79,7 @@ export default function ScheduleConfiguration(props: any) {
                 <div>
                     {(schedule.day && schedule.hour) ? 
                         (
-                            <p className="w-full text-center p-4 text-sm text-gray-500 leading-4">Gostaria de confirmar e agendar sua sessão para <strong className="font-semibold">{schedule.dayLongname}, { extractDayFromDate(schedule.date) } de { schedule.month}, {schedule.hour}?</strong></p>
+                            <p className="w-full text-center p-4 text-sm text-gray-500 leading-4" data-testid="confirm-text">Gostaria de confirmar e agendar sua sessão para <strong className="font-semibold">{schedule.dayLongname}, { extractDayFromDate(schedule.date) } de { schedule.month}, {schedule.hour}?</strong></p>
                         ) : 
                         (
                             <p className="w-full text-center p-4 text-sm text-gray-500 leading-4">Serviço não agendado</p>

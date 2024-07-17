@@ -1,16 +1,19 @@
+'use client';
+
 import Pyschologist from "@/app/model/pyschologist.model";
 import Image from "next/image";
 import Link from "next/link";
 
+
+
 interface PsychologistCardProps {
-  key: string,
-  data: Pyschologist,
+  data: Pyschologist
   information: boolean
 }
 
-export default async function PsychologistCard({key, data, information }: PsychologistCardProps) {    
+export default function PsychologistCard({ data, information }: PsychologistCardProps) {    
   return (
-      <div className={`shadow-default flex flex-wrap border-1 border-solid border-gray-100 text-black p-10 bg-white rounded-2xl ${information ? 'max-w-md' : 'max-w-lg'} m-2`} key={key}>
+      <div className={`shadow-default flex flex-wrap border-1 border-solid border-gray-100 text-black p-10 bg-white rounded-2xl ${information ? 'max-w-md' : 'max-w-lg'} m-2`}>
         <div className="flex w-full mb-5">
           <div className="w-20 h-20  mr-4 relative">
           <Image
@@ -21,7 +24,7 @@ export default async function PsychologistCard({key, data, information }: Psycho
             />
           </div>
           <div className="w-9/12">
-            <h4 className="text-blue-900 font-bold text-base">{data.firstName}</h4>
+            <h4 className="text-blue-900 font-bold text-base">{data.nickName}</h4>
             { data.specialization && <p className="text-gray-500">{data.specialization}</p> }
             { data.crp && <p className="text-gray-500">{`CRP: ${data.crp}`}</p> }
           </div>
