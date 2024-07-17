@@ -17,6 +17,7 @@ interface PsychologistDetails {
 
 export default async function PsychologistDetails({ params }: PsychologistDetails) {
     try {
+        console.log(params.id)
         const data = await getPsychologistById(params.id);
         const calendar = await getCalendar();
 
@@ -66,6 +67,7 @@ export default async function PsychologistDetails({ params }: PsychologistDetail
             </main>
         )
     } catch {
+        console.log(params.id, 'erro')
         return (
             <Error />
         )

@@ -6,10 +6,10 @@ export default interface Pyschologist {
     bio: string,
     avatarUrl: string,
     gender: string,
-    sessionPrice: number,
-    crp: string,
-    specialization: string,
-    montlyPrice: number,
+    sessionPrice?: number,
+    crp?: string,
+    specialization?: string,
+    montlyPrice?: number,
     professionalContact: ProfessionalContact[],
     anamnesis: Anamnese[]
     professionalCarreerTrail: ProfessionalCarreerTrail[]
