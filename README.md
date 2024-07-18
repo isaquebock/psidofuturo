@@ -1,10 +1,12 @@
-<center>
 
+
+<div align="center">
+    
 ![image info](./logo.png)
 
-# Technical Test by Isaque Böck
 
-</center>
+# Technical Test by Isaque Böck
+<div>
 
 
 ## 📄 Descrição
