@@ -5,6 +5,7 @@ import Error from "@/app/error";
 
 export default async function PsychologistList() {
     try {
+
         const data: Pyschologist[] = await getPsychologistList();
     
         return (
