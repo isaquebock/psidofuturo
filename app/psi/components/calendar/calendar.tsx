@@ -3,9 +3,9 @@
 import { useState } from "react";
 import ScheduleConfiguration from "../scheduleConfiguration/scheduleConfiguration";
 import Schedule from "../schedule/schedule";
-import Calendar from "@/app/model/calendar.model";
+import { Calendar as CalendarModel } from "@/app/model/calendar.model";
 interface CalendarProps {
-    calendar: Calendar[]
+    calendar: CalendarModel[]
 }
 
 export default function Calendar({calendar}: CalendarProps) { 

@@ -45,7 +45,7 @@ export default function PsychologistCard({ data, information }: PsychologistCard
           information && 
           <div className="flex w-full mt-5 flex-wrap text-sm leading-4">
             <p className="w-full text-gray-500">{data.bio}</p>
-            <Link href={`/psi/${data.id}`} className="text-blue-link underline decoration-solid cursor-pointer mt-1">Ver perfil completo</Link>
+            <Link data-testid={data.id} href={`/psi/${data.id}`} className="text-blue-link underline decoration-solid cursor-pointer mt-1">Ver perfil completo</Link>
           </div>
         }
       </div>

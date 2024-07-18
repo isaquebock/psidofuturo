@@ -11,7 +11,7 @@ interface ButtonProps {
 export default function Button({title, icon, full = false, action}: ButtonProps) {
 
     return (
-        <button className={`flex bg-red-600 rounded-full px-6 m-auto ${full ? `w-full my-1 justify-center p-2` : 'w-max my-8'}`} onClick={action} data-testid={full && `confirm`}>
+        <button className={`flex bg-red-600 rounded-full px-6 m-auto items-center ${full ? `w-full my-1 justify-center p-2` : 'w-max my-8'}`} onClick={action} data-testid={full ? `confirm` : 'return'}>
             {
                 icon &&
                 <Image

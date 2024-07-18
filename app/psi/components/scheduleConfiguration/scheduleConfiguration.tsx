@@ -2,7 +2,6 @@
 
 import Button from "@/app/components/button/button";
 import { useState } from "react";
-import Schedule from "../schedule/schedule";
 import Card from "@/app/components/card/card";
 
 export default function ScheduleConfiguration(props: any) {

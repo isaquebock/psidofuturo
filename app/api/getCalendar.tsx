@@ -1,6 +1,7 @@
+import { Calendar } from "../model/calendar.model";
 
 
-export async function getCalendar(): Promise<any> {
+export async function getCalendar(): Promise<Calendar[]> {
     const res = await fetch(`http://localhost:3000/calendar`)
 
     if(!res.ok) {

@@ -8,6 +8,7 @@ import Calendar from "../components/calendar/calendar";
 import { getCalendar } from "@/app/api/getCalendar";
 import Link from "next/link";
 import Error from "./error";
+import { Anamnese, ProfessionalCarreerTrail } from "@/app/model/pyschologist.model";
 
 interface PsychologistDetails {
     params: {
@@ -39,13 +40,13 @@ export default async function PsychologistDetails({ params }: PsychologistDetail
                     </Card>
 
                     <Card title="Anamnese">
-                        {data.anamnesis.map((anamnese: any) => {
+                        {data.anamnesis.map((anamnese: Anamnese) => {
                             return (<Tag key={anamnese.id} props={anamnese.name}></Tag>)
                         })}
                     </Card>
 
                     <Card title="Formação Profissional">
-                        {data.professionalCarreerTrail.map((carreerTrail: any) => {
+                        {data.professionalCarreerTrail.map((carreerTrail: ProfessionalCarreerTrail) => {
                             return (
                                 <span key={carreerTrail.id} className="flex mb-5">
                                     <Image

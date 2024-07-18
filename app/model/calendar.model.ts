@@ -1,4 +1,4 @@
-export default interface Calendar {
+export interface Calendar {
     dayLongname:  string,
     date: string
     day: string
